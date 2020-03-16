@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 const styles = {
   task:{
-    paddingBottom: 10,
+    paddingBottom: 5,
     borderBottomStyle: 'solid',
     borderBottomColor: '#aaa',
     borderBottomWidth: 1,
-    marginBottom: 25
+    marginBottom: 20
   },
 
   button: {
+    margin: 5,
     width: 60,
     height: 25
   },
@@ -19,8 +20,14 @@ const styles = {
   },
 
   taskData: {
-    padding: 20
+    padding: 20,
+    backgroundColor: '#f7f7f7'
+  },
+
+  status: {
+    float: 'right'
   }
+
 }
 
 const Task = (props) => {
@@ -29,7 +36,7 @@ const Task = (props) => {
       <div>{props.task.id}</div>
       <div style={styles.taskData}>
         <span>{props.task.task}</span>
-        <span>{props.task.status}</span>
+        <span style={styles.status}>{props.task.status}</span>
       </div>
       <div style={styles.buttonDiv}>
         <button style={styles.button}>Edit</button>&nbsp;

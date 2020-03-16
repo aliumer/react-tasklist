@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import Task from './task';
 
-class TaskList extends React.Component {
-    render() {
-        return (
-            <Task />
-        )
-    }
+
+const TaskList = (props) => {
+  return (
+    <div>
+      {
+        Object.values(props.tasks).map(t => <Task key={t.id} task={t} />)
+      }
+    </div>
+  )
 }
 
 export default TaskList;

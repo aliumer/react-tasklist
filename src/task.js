@@ -1,36 +1,21 @@
 import React, { Component } from 'react';
-
-const styles = {
-  task:{
-    paddingBottom: 5,
-    borderBottomStyle: 'solid',
-    borderBottomColor: '#aaa',
-    borderBottomWidth: 1,
-    marginBottom: 20
-  },
-
-  button: {
-    margin: 5,
-    width: 60,
-    height: 25
-  },
-
-  buttonDiv: {
-    textAlign: 'right'
-  },
-
-  taskData: {
-    padding: 20,
-    backgroundColor: '#f7f7f7'
-  },
-
-  status: {
-    float: 'right'
-  }
-
-}
+import styles from './styles';
 
 const Task = (props) => {
+  const state = {
+    action: 'init'
+  }
+
+  const onEdit = () => {
+    state.action = 'edit';
+    console.log(state);
+    props.actions.edit(props.task);
+  }
+  
+  const onDelete = () => {
+    props.actions.delete(props.task.id);
+  }
+
   return (
     <div style={styles.task}>
       <div>{props.task.id}</div>
@@ -39,8 +24,8 @@ const Task = (props) => {
         <span style={styles.status}>{props.task.status}</span>
       </div>
       <div style={styles.buttonDiv}>
-        <button style={styles.button}>Edit</button>&nbsp;
-        <button style={styles.button}>Delete</button>
+        <button onClick={onEdit} style={styles.button}>Edit</button>&nbsp;
+        <button onClick={onDelete} style={styles.button}>Delete</button>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const TaskList = (props) => {
   return (
     <div>
       {
-        Object.values(props.tasks).map(t => <Task key={t.id} task={t} />)
+        Object.values(props.tasks).map(t => <Task key={t.id} task={t} actions={props.actions} />)
       }
     </div>
   )

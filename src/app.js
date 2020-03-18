@@ -11,10 +11,23 @@ class App extends React.Component {
     };    
   }
 
+  taskActions = {
+    delete: id => this.deleteTask(id),
+    edit: t => this.editTask(t)
+  }
+
+  deleteTask(id) {
+    console.log('deleting: ', id);
+  }
+
+  editTask(t) {
+    console.log('editing:', t);
+  }
+
 
   render(){
     return (
-    <TaskList tasks={this.state.tasks} />
+    <TaskList tasks={this.state.tasks} actions={this.taskActions} />
     );
   }
 }
